@@ -1,0 +1,87 @@
+<div class="movie_container">
+    <h1>TOP 100 IMDB MOVIES</h1>
+<div class="movie-list">
+    <div class="movie" *ngFor="let movie of movie">
+      <div class="movie-card">
+        <img [src]="movie.image" [alt]="movie.title" class="movie-image" />
+        <div class="movie-details">
+          <h2>{{ movie.title }}</h2>
+          <p class="description">{{ movie.description }}</p>
+          <p class="genre">Genre: {{ movie.genre.join(', ') }}</p>
+          <p class="rating">Rating: {{ movie.rating }}</p>
+          <p class="year">Year: {{ movie.year }}</p>
+          <a [href]="movie.imdb_link" target="_blank" class="imdb-link">View on IMDb</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+  <style>
+    .movie_container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: #e6c45d;
+    }
+    .movie-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+  
+    .movie-card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s;
+    }
+  
+    .movie-card:hover {
+      transform: translateY(-10px);
+    }
+  
+    .movie-image {
+      width: 100%;
+      height: auto;
+    }
+  
+    .movie-details {
+      padding: 15px;
+    }
+  
+    .movie-details h2 {
+      margin: 0 0 10px;
+      font-size: 1.5rem;
+    }
+  
+    .description {
+      margin: 0 0 10px;
+      color: #555;
+    }
+  
+    .genre, .rating, .year {
+      margin: 0 0 5px;
+    }
+  
+    .imdb-link {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 5px 10px;
+      background-color: #f5c518;
+      color: #000;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+  
+    .imdb-link:hover {
+      background-color: #e3af13;
+    }
+  </style>
+  
